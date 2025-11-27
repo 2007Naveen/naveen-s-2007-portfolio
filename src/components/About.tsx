@@ -40,7 +40,7 @@ const About = () => {
           <div className="flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl" />
-              <div className="relative w-80 h-80 rounded-full border-4 border-primary overflow-hidden animate-glow">
+              <div className="relative w-80 h-80 rounded-full border-4 border-primary overflow-hidden animate-float">
                 <img
                   src={profileImage}
                   alt="Naveenkumar R"
