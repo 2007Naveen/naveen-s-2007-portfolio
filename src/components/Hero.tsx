@@ -1,8 +1,37 @@
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, MessageCircle, Globe, Instagram, Facebook, Code2 } from 'lucide-react';
 import profileImage from '@/assets/profile.png';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
+  const [currentRole, setCurrentRole] = useState('');
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const roles = ['Full Stack Developer', 'Web Developer', 'UI/UX Designer'];
+
+  useEffect(() => {
+    const currentText = roles[roleIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting && charIndex < currentText.length) {
+        setCurrentRole(currentText.substring(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+      } else if (isDeleting && charIndex > 0) {
+        setCurrentRole(currentText.substring(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+      } else if (!isDeleting && charIndex === currentText.length) {
+        setTimeout(() => setIsDeleting(true), 1500);
+      } else if (isDeleting && charIndex === 0) {
+        setIsDeleting(false);
+        setRoleIndex((roleIndex + 1) % roles.length);
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timer);
+  }, [charIndex, isDeleting, roleIndex]);
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -15,14 +44,14 @@ const Hero = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold">
-              NAVEENKUMAR <span className="text-primary">R</span>
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+              NAVEENKUMAR R
             </h1>
             <p className="text-muted-foreground text-lg">
               Student of - B.E Computer Science And Engineering
             </p>
-            <h2 className="text-3xl font-bold">
-              Beginner-Full <span className="text-primary">Stack</span>
+            <h2 className="text-3xl font-bold h-12">
+              {currentRole}<span className="animate-blink">|</span>
             </h2>
             <p className="text-lg leading-relaxed">
               I can create responsive, user-friendly websites. I'm interesting
@@ -68,15 +97,30 @@ const Hero = () => {
           </div>
 
           <div className="flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-              <div className="relative w-80 h-80 rounded-full border-4 border-primary overflow-hidden animate-float">
-                <img
-                  src={profileImage}
-                  alt="Naveenkumar R"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="relative w-[360px] h-[360px]">
+              {/* Pulse rings */}
+              <div className="absolute w-[360px] h-[360px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-primary/30 animate-pulse-ring" />
+              <div className="absolute w-[360px] h-[360px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-primary/30 animate-pulse-ring [animation-delay:1s]" />
+              <div className="absolute w-[360px] h-[360px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-primary/30 animate-pulse-ring [animation-delay:2s]" />
+              
+              {/* Rotating outer ring */}
+              <div className="absolute w-[360px] h-[360px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[conic-gradient(transparent,hsl(var(--primary)),transparent,transparent)] animate-rotate" />
+              
+              {/* Rotating middle ring */}
+              <div className="absolute w-[330px] h-[330px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[conic-gradient(transparent,hsl(var(--primary)),transparent,transparent)] animate-rotate-reverse blur-[3px] z-[2]" />
+              
+              {/* Rotating inner ring */}
+              <div className="absolute w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[conic-gradient(transparent,hsl(var(--primary)),transparent,transparent)] animate-rotate-fast z-[3]" />
+              
+              {/* Border container mask */}
+              <div className="absolute w-[320px] h-[320px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-background z-[5]" />
+              
+              {/* Profile image */}
+              <img
+                src={profileImage}
+                alt="Naveenkumar R"
+                className="absolute w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full object-cover border-4 border-background shadow-[0_5px_30px_rgba(0,0,0,0.4)] z-10 transition-transform duration-500 hover:scale-105"
+              />
             </div>
           </div>
         </div>
