@@ -3,10 +3,26 @@ import { Code2 } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Detect active section
+      const sections = ['home', 'about', 'education', 'projects', 'skills', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -14,6 +30,7 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
+    setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -38,7 +55,11 @@ const Navbar = () => {
               <li key={item}>
                 <button
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="text-foreground hover:text-primary transition-colors font-medium"
+                  className={`relative text-foreground hover:text-primary transition-colors font-medium pb-1 ${
+                    activeSection === item.toLowerCase() 
+                      ? 'text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary' 
+                      : ''
+                  }`}
                 >
                   {item}
                 </button>
