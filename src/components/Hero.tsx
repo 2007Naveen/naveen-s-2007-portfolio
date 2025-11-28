@@ -58,22 +58,21 @@ const Hero = () => {
               to make beautiful designed and specially performable websites.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Button
+            <div className="flex flex-wrap gap-5 mt-5 opacity-0 animate-[fadeInUp_1s_ease_forwards_0.8s]">
+              <button
                 onClick={() => scrollToSection('projects')}
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                className="relative px-9 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2.5 overflow-hidden transition-all duration-300 bg-gradient-to-r from-[#1ed761] to-[#15c46a] text-[#0c0f17] shadow-[0_5px_15px_rgba(30,215,97,0.4)] hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(30,215,97,0.6)] before:content-[''] before:absolute before:top-0 before:-left-full before:w-1/2 before:h-full before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:transition-all before:duration-500 hover:before:left-full"
               >
-                <Code2 className="w-4 h-4 mr-2" />
+                <Code2 className="w-5 h-5" />
                 View Projects
-              </Button>
-              <Button
+              </button>
+              <button
                 onClick={() => scrollToSection('contact')}
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                className="px-9 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2.5 transition-all duration-300 border-2 border-primary text-primary hover:bg-primary/10 hover:-translate-y-1"
               >
-                <MessageCircle className="w-4 h-4 mr-2" />
+                <MessageCircle className="w-5 h-5" />
                 Contact Me
-              </Button>
+              </button>
             </div>
 
             <div className="flex gap-5 mt-8 opacity-0 animate-[fadeInUp_1s_ease_forwards_1.1s]">
@@ -90,10 +89,9 @@ const Hero = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-card to-card/80 text-primary text-xl transition-all duration-300 shadow-[0_0_15px_rgba(42,252,133,0.4)] relative overflow-hidden group hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(42,252,133,0.6)] active:translate-y-[-8px] active:shadow-[0_0_30px_rgba(42,252,133,0.8)]"
+                  className="w-[50px] h-[50px] rounded-full flex items-center justify-center bg-gradient-to-br from-[#1a1f2e] to-[#232838] text-primary text-xl transition-all duration-300 shadow-[0_5px_15px_rgba(0,0,0,0.2)] relative overflow-hidden hover:-translate-y-[5px] hover:text-[#151925] hover:shadow-[0_8px_20px_rgba(30,215,97,0.3)] before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-br before:from-[#1ed761] before:via-primary before:to-[#15c46a] before:opacity-0 before:transition-opacity before:duration-300 before:-z-10 hover:before:opacity-100"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[#15c46a] opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-10" />
-                  <Icon className="w-5 h-5 relative z-10 transition-colors duration-300 group-hover:text-background" />
+                  <Icon className="w-5 h-5 relative z-10" />
                 </a>
               ))}
             </div>
