@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, MessageCircle, Globe, Instagram, Facebook, Code2 } from 'lucide-react';
+import { Github, Linkedin, MessageCircle, Send, Instagram, Facebook, Code2 } from 'lucide-react';
 import profileImage from '@/assets/profile.png';
 import { useState, useEffect } from 'react';
 
@@ -76,21 +76,24 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex gap-5 mt-8 opacity-0 animate-[fadeInUp_1s_ease_forwards_1.1s]">
               {[
-                { Icon: Github, href: '#' },
-                { Icon: Linkedin, href: '#' },
-                { Icon: MessageCircle, href: '#' },
-                { Icon: Globe, href: '#' },
-                { Icon: Instagram, href: '#' },
-                { Icon: Facebook, href: '#' },
+                { Icon: Github, href: 'https://github.com/NaveenkumarR2007' },
+                { Icon: Linkedin, href: 'https://www.linkedin.com/in/naveenkumar-r-be-cse-6b44aa319/' },
+                { Icon: MessageCircle, href: 'https://wa.me/919087885455' },
+                { Icon: Send, href: 'https://t.me/naveenkumar_r_cse' },
+                { Icon: Instagram, href: 'https://www.instagram.com/r.naveenkumar2007/' },
+                { Icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61582503039413' },
               ].map(({ Icon, href }, idx) => (
                 <a
                   key={idx}
                   href={href}
-                  className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-secondary/80 transition-all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full flex items-center justify-center bg-gradient-to-br from-card to-card/80 text-primary text-xl transition-all duration-300 shadow-[0_0_15px_rgba(42,252,133,0.4)] relative overflow-hidden group hover:scale-110 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(42,252,133,0.6)] active:translate-y-[-8px] active:shadow-[0_0_30px_rgba(42,252,133,0.8)]"
                 >
-                  <Icon className="w-5 h-5" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-[#15c46a] opacity-0 transition-opacity duration-300 group-hover:opacity-100 -z-10" />
+                  <Icon className="w-5 h-5 relative z-10 transition-colors duration-300 group-hover:text-background" />
                 </a>
               ))}
             </div>
