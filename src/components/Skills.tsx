@@ -11,10 +11,7 @@ const skillsData = {
   tools: [
     { name: 'Eclipse', image: 'https://2007naveen.github.io/naveen2007portfolio/eclipse.png' },
     { name: 'VS Code', image: 'https://2007naveen.github.io/naveen2007portfolio/vscode.png' },
-    {
-      name: 'Google Cloud',
-      image: 'https://2007naveen.github.io/naveen2007portfolio/googlecloud.png',
-    },
+    { name: 'Google Cloud', image: 'https://2007naveen.github.io/naveen2007portfolio/googlecloud.png' },
     { name: 'MATLAB', image: 'https://2007naveen.github.io/naveen2007portfolio/matlab.png' },
     { name: 'GitHub', image: 'https://2007naveen.github.io/naveen2007portfolio/github.png' },
     { name: 'Autodesk', image: 'https://2007naveen.github.io/naveen2007portfolio/autodesk.png' },
@@ -30,54 +27,46 @@ const Skills = () => {
         </h2>
 
         <div className="max-w-5xl mx-auto space-y-12">
-          {/* Frontend */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Frontend Languages Known</h3>
-            <div className="flex flex-wrap gap-8">
-              {skillsData.frontend.map((skill, index) => (
-                <div
-                  key={index}
-                  className="w-24 h-24 bg-card rounded-lg p-4 flex items-center justify-center hover:border-2 hover:border-primary transition-all hover:scale-110"
-                >
-                  <img src={skill.image} alt={skill.name} className="w-full h-full object-contain" />
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Backend */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Backend Languages Known</h3>
-            <div className="flex flex-wrap gap-8">
-              {skillsData.backend.map((skill, index) => (
-                <div
-                  key={index}
-                  className="w-24 h-24 bg-card rounded-lg p-4 flex items-center justify-center hover:border-2 hover:border-primary transition-all hover:scale-110"
-                >
-                  <img src={skill.image} alt={skill.name} className="w-full h-full object-contain" />
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* FRONTEND */}
+          <SkillSection title="Frontend Languages Known" items={skillsData.frontend} />
 
-          {/* Tools */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Development Tools Known</h3>
-            <div className="flex flex-wrap gap-8">
-              {skillsData.tools.map((skill, index) => (
-                <div
-                  key={index}
-                  className="w-24 h-24 bg-card rounded-lg p-4 flex items-center justify-center hover:border-2 hover:border-primary transition-all hover:scale-110"
-                >
-                  <img src={skill.image} alt={skill.name} className="w-full h-full object-contain" />
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* BACKEND */}
+          <SkillSection title="Backend Languages Known" items={skillsData.backend} />
+
+          {/* TOOLS */}
+          <SkillSection title="Development Tools Known" items={skillsData.tools} />
+
         </div>
       </div>
     </section>
   );
 };
+
+const SkillSection = ({ title, items }) => (
+  <div className="text-center">
+    <h3 className="text-2xl font-bold mb-6">{title}</h3>
+
+    <div className="flex flex-wrap justify-center gap-8">
+      {items.map((skill, index) => (
+        <div
+          key={index}
+          className="w-16 h-16 
+                     rounded-full 
+                     flex items-center justify-center
+                     bg-gradient-to-br from-green-300 to-white
+                     shadow-md hover:shadow-xl
+                     transition-transform hover:scale-110"
+        >
+          <img
+            src={skill.image}
+            alt={skill.name}
+            className="w-10 h-10 object-contain"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
 export default Skills;

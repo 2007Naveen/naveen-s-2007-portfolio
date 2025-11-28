@@ -1,23 +1,23 @@
-import { GraduationCap } from 'lucide-react';
+import { Calendar } from "lucide-react";
 
 const educationData = [
   {
-    period: '2024 - 2028',
-    degree: 'Bachelor Degree - B.E ( Computer Science And Engineering )',
-    institution: 'K.S.R College of Engineering, Tiruchengode, Namakkal-637211.',
-    score: '9.181 CGPA upto 1st Year.',
+    period: "2024 - 2028",
+    degree: "Bachelor Degree - B.E ( Computer Science And Engineering )",
+    institution: "K.S.R College of Engineering, Tiruchengode, Namakkal-637211.",
+    score: "9.181 CGPA upto 1st Year.",
   },
   {
-    period: '2023 - 2024',
-    degree: 'Higher Secondary Certificate',
-    institution: 'G.H.S.S-Errabaiyanahalli, Dharmapuri-636813.',
-    score: '76.77 %.',
+    period: "2023 - 2024",
+    degree: "Higher Secondary Certificate",
+    institution: "G.H.S.S-Errabaiyanahalli, Dharmapuri-636813.",
+    score: "76.77 %",
   },
   {
-    period: '2021 - 2022',
-    degree: 'Secondary School Leaving Certificate',
-    institution: 'G.H.S.S-Errabaiyanahalli, Dharmapuri-636813.',
-    score: '81.4 %.',
+    period: "2021 - 2022",
+    degree: "Secondary School Leaving Certificate",
+    institution: "G.H.S.S-Errabaiyanahalli, Dharmapuri-636813.",
+    score: "81.4 %",
   },
 ];
 
@@ -29,25 +29,63 @@ const Education = () => {
           My <span className="text-primary">Journey</span>
         </h2>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {educationData.map((edu, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-lg p-6 border border-border hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-6 h-6 text-primary" />
+        <div className="relative max-w-3xl mx-auto">
+
+          {/* Vertical Green Line */}
+          <div className="absolute left-4 top-0 h-full w-1 bg-primary/80 shadow-[0_0_25px_#00ff88] rounded-full"></div>
+
+          <div className="space-y-12">
+            {educationData.map((edu, index) => (
+              <div key={index} className="relative flex gap-6">
+
+                {/* Neon Glowing Circle */}
+                <div className="flex flex-col items-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-white to-primary border-4 border-primary shadow-[0_0_30px_#00ff88]"></div>
                 </div>
-                <div className="flex-1 space-y-2">
-                  <p className="text-primary font-semibold">{edu.period}</p>
-                  <h3 className="text-xl font-bold">{edu.degree}</h3>
+
+                {/* Card */}
+                <div
+                  className="
+                    group relative flex-1 bg-card rounded-xl p-6
+                    border-2 border-primary/70
+                    transition-all duration-500
+                    hover:border-primary 
+                    hover:shadow-[0_0_30px_#00ff88]
+                  "
+                >
+                  {/* Shine Effect */}
+                  <div
+                    className="
+                      absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100
+                      transition-opacity duration-500 overflow-hidden pointer-events-none
+                    "
+                  >
+                    <div
+                      className="
+                        absolute inset-0 -translate-x-full
+                        group-hover:translate-x-full
+                        transition-transform duration-1000
+                        bg-gradient-to-r from-transparent via-white/20 to-transparent
+                      "
+                    ></div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="flex items-center gap-2 text-primary font-semibold mb-2">
+                    <Calendar className="w-5 h-5" />
+                    {edu.period}
+                  </div>
+
+                  <h3 className="text-xl font-bold mb-2">{edu.degree}</h3>
+
                   <p className="text-muted-foreground">{edu.institution}</p>
-                  <p className="font-medium">Score : {edu.score}</p>
+
+                  <p className="font-medium mt-2">Score : {edu.score}</p>
                 </div>
+
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
