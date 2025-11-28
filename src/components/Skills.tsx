@@ -70,3 +70,4 @@ const SkillSection = ({ title, items }) => (
 );
 
 export default Skills;
+// naveenkumar updated
