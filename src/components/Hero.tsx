@@ -41,16 +41,16 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-6">
+    <section id="home" className="min-h-screen flex items-center pt-20 overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         
         {/* UPDATED LAYOUT HERE */}
-        <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full">
           
           {/* TEXT SECTION */}
           <div className="space-y-6 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-              Mr.R.NAVEENKUMAR,.BE,
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+              NAVEENKUMAR R
             </h1>
 
             <p className="text-muted-foreground text-lg">
@@ -66,11 +66,11 @@ const Hero = () => {
               to make beautiful designed and specially performable websites.
             </p>
 {/* BUTTONS */}
-           <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-5 animate-[fadeInUp_1s_ease_forwards]">
+           <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 md:gap-5 mt-5 animate-[fadeInUp_1s_ease_forwards]">
   {/* View Projects Button */}
   <button
     onClick={() => scrollToSection('projects')}
-    className="relative px-9 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2.5 overflow-hidden bg-gradient-to-r from-[#1ed761] to-[#15c46a] text-[#0c0f17] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(30,215,97,0.6)]"
+    className="relative px-6 sm:px-8 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-2 sm:gap-2.5 overflow-hidden bg-gradient-to-r from-[#1ed761] to-[#15c46a] text-[#0c0f17] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(30,215,97,0.6)]"
   >
     <Code2 className="w-5 h-5" />
     View Projects
@@ -81,7 +81,7 @@ const Hero = () => {
   {/* Contact Me Button */}
   <button
     onClick={() => scrollToSection('contact')}
-    className="relative px-9 py-4 rounded-full text-lg font-semibold inline-flex items-center gap-2.5 border-2 border-primary text-primary overflow-hidden transition-all duration-300 hover:bg-primary/10 hover:-translate-y-1"
+    className="relative px-6 sm:px-8 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-2 sm:gap-2.5 border-2 border-primary text-primary overflow-hidden transition-all duration-300 hover:bg-primary/10 hover:-translate-y-1"
   >
     <MessageCircle className="w-5 h-5" />
     Contact Me
@@ -89,7 +89,7 @@ const Hero = () => {
     <span className="absolute top-0 left-[-75%] w-1/2 h-full bg-white/40 transform -skew-x-12 animate-shine"></span>
   </button>
 </div>
-             <div className="flex justify-center md:justify-start gap-5 mt-8 animate-[fadeInUp_1s_ease_forwards]">
+             <div className="flex justify-center md:justify-start gap-3 sm:gap-4 md:gap-5 mt-8 animate-[fadeInUp_1s_ease_forwards]">
               {[
                 { Icon: Github, href: 'https://github.com/NaveenkumarR2007' },
                 { Icon: Linkedin, href: 'https://www.linkedin.com/in/naveenkumar-r-be-cse-6b44aa319/' },
@@ -103,9 +103,9 @@ const Hero = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[50px] h-[50px] rounded-full flex items-center justify-center bg-gradient-to-br from-[#1a1f2e] to-[#232838] text-primary transition-all duration-300 shadow-lg hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(30,215,97,0.3)]"
+                  className="w-[45px] h-[45px] sm:w-[50px] sm:h-[50px] rounded-full flex items-center justify-center bg-gradient-to-br from-[#1a1f2e] to-[#232838] text-primary transition-all duration-300 shadow-lg hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(30,215,97,0.3)]"
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </a>
               ))}
             </div>
