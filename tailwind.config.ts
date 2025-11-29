@@ -104,6 +104,10 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0" },
         },
+        "shine": {
+          "0%": { left: "-75%", opacity: "0.7" },
+          "100%": { left: "125%", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -115,6 +119,7 @@ export default {
         "rotate-fast": "rotate 2s linear infinite",
         "pulse-ring": "pulse-ring 3s ease-out infinite",
         "blink": "blink 0.7s infinite",
+        "shine": "shine 0.8s ease-in-out",
       },
     },
   },

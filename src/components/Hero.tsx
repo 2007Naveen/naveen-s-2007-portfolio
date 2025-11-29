@@ -1,13 +1,14 @@
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, MessageCircle, Send, Instagram, Facebook, Code2 } from 'lucide-react';
 import profileImage from '@/assets/profile.png';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [shineActive, setShineActive] = useState(false);
   
   const roles = ['Full Stack Developer', 'Web Developer', 'UI/UX Designer'];
 
@@ -40,6 +41,12 @@ const Hero = () => {
     }
   };
 
+  const handleProjectsClick = () => {
+    setShineActive(true);
+    setTimeout(() => setShineActive(false), 800);
+    scrollToSection('projects');
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
@@ -69,13 +76,13 @@ const Hero = () => {
            <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 md:gap-5 mt-5 animate-[fadeInUp_1s_ease_forwards]">
   {/* View Projects Button */}
   <button
-    onClick={() => scrollToSection('projects')}
+    onClick={handleProjectsClick}
     className="relative px-6 sm:px-8 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-2 sm:gap-2.5 overflow-hidden bg-gradient-to-r from-[#1ed761] to-[#15c46a] text-[#0c0f17] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(30,215,97,0.6)]"
   >
     <Code2 className="w-5 h-5" />
     View Projects
-    {/* Shiny gradient effect */}
-    <span className="absolute top-0 left-[-75%] w-1/2 h-full bg-white/40 transform -skew-x-12 animate-shine"></span>
+    {/* Silver shine effect on click */}
+    <span className={`absolute top-0 left-[-75%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/70 to-transparent transform -skew-x-12 ${shineActive ? 'animate-shine' : ''}`}></span>
   </button>
 
   {/* Contact Me Button */}
