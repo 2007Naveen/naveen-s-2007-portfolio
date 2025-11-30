@@ -20,14 +20,13 @@ const skillsData = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16">
+    <section id="skills" className="py-16 md:py-20 bg-secondary/30">
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 md:mb-16">
           My <span className="text-primary">Skills</span>
         </h2>
 
-        <div className="max-w-5xl mx-auto space-y-12">
-
+        <div className="max-w-5xl mx-auto space-y-10 md:space-y-12">
           {/* FRONTEND */}
           <SkillSection title="Frontend Languages Known" items={skillsData.frontend} />
 
@@ -36,7 +35,6 @@ const Skills = () => {
 
           {/* TOOLS */}
           <SkillSection title="Development Tools Known" items={skillsData.tools} />
-
         </div>
       </div>
     </section>
@@ -45,13 +43,13 @@ const Skills = () => {
 
 const SkillSection = ({ title, items }) => (
   <div className="text-center">
-    <h3 className="text-2xl font-bold mb-6">{title}</h3>
+    <h3 className="text-xl sm:text-2xl md:text-2xl font-semibold mb-6">{title}</h3>
 
-    <div className="flex flex-wrap justify-center gap-8">
+    <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
       {items.map((skill, index) => (
         <div
           key={index}
-          className="w-16 h-16 
+          className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20
                      rounded-full 
                      flex items-center justify-center
                      bg-gradient-to-br from-green-300 to-white
@@ -61,7 +59,7 @@ const SkillSection = ({ title, items }) => (
           <img
             src={skill.image}
             alt={skill.name}
-            className="w-10 h-10 object-contain"
+            className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 object-contain"
           />
         </div>
       ))}
@@ -70,4 +68,3 @@ const SkillSection = ({ title, items }) => (
 );
 
 export default Skills;
-// naveenkumar updated

@@ -4,6 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
+/* Remove horizontal overflow across entire website */
+html, body {
+  overflow-x: hidden !important;
+}
 
 .logo {
   height: 6em;

@@ -72,30 +72,27 @@ const Hero = () => {
               I can create responsive, user-friendly websites. I'm interesting
               to make beautiful designed and specially performable websites.
             </p>
-{/* BUTTONS */}
-           <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 md:gap-5 mt-5 animate-[fadeInUp_1s_ease_forwards]">
-  {/* View Projects Button */}
-  <button
-    onClick={handleProjectsClick}
-    className="relative px-6 sm:px-8 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-2 sm:gap-2.5 overflow-hidden bg-gradient-to-r from-[#1ed761] to-[#15c46a] text-[#0c0f17] shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_5px_20px_rgba(30,215,97,0.6)]"
-  >
-    <Code2 className="w-5 h-5" />
-    View Projects
-    {/* Silver shine effect on click */}
-    <span className={`absolute top-0 left-[-75%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/70 to-transparent transform -skew-x-12 ${shineActive ? 'animate-shine' : ''}`}></span>
-  </button>
+  {/* BUTTONS */}
+            <div className="cta-buttons flex flex-wrap justify-center md:justify-start gap-2 sm:gap-3 mt-4 sm:mt-5">
+              <button
+                onClick={handleProjectsClick}
+                className="relative px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-semibold inline-flex items-center gap-1 sm:gap-2 overflow-hidden bg-gradient-to-r from-[#1ed761] to-[#15c46a] text-[#0c0f17] shadow-md hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(30,215,97,0.5)] transition-all duration-300"
+              >
+                <Code2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                View Projects
+                <span className={`absolute top-0 left-[-75%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/70 to-transparent transform -skew-x-12 ${shineActive ? 'animate-shine' : ''}`}></span>
+              </button>
 
-  {/* Contact Me Button */}
-  <button
-    onClick={() => scrollToSection('contact')}
-    className="relative px-6 sm:px-8 md:px-9 py-3 sm:py-3.5 md:py-4 rounded-full text-base sm:text-lg font-semibold inline-flex items-center gap-2 sm:gap-2.5 border-2 border-primary text-primary overflow-hidden transition-all duration-300 hover:bg-primary/10 hover:-translate-y-1"
-  >
-    <MessageCircle className="w-5 h-5" />
-    Contact Me
-    {/* Shiny gradient effect */}
-    <span className="absolute top-0 left-[-75%] w-1/2 h-full bg-white/40 transform -skew-x-12 animate-shine"></span>
-  </button>
-</div>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="relative px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-semibold inline-flex items-center gap-1 sm:gap-2 border-2 border-primary text-primary overflow-hidden transition-all duration-300 hover:bg-primary/10 hover:-translate-y-0.5"
+              >
+                <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4" />
+                Contact Me
+                <span className="absolute top-0 left-[-75%] w-1/2 h-full bg-white/40 transform -skew-x-12 animate-shine"></span>
+              </button>
+            </div>
+
              <div className="flex justify-center md:justify-start gap-3 sm:gap-4 md:gap-5 mt-8 animate-[fadeInUp_1s_ease_forwards]">
               {[
                 { Icon: Github, href: 'https://github.com/NaveenkumarR2007' },
