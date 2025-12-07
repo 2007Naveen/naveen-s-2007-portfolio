@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Github, Linkedin, MessageCircle, Send, Instagram, Facebook, Code2 } from 'lucide-react';
-import profileImage from '@/assets/profile.png';
+import profileImage from '@/assets/nkphoto.png';
 import { useState, useEffect, useRef } from 'react';
 
 const Hero = () => {

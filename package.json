@@ -82,5 +82,6 @@
   },
   "overrides": {
     "lucide-react": "0.267.0"
+  
   }
 }

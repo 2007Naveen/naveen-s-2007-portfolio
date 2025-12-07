@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
-import profileImage from '@/assets/profile1.png';
+import profileImage from '@/assets/nkphoto.png';
 
 const About = () => {
   return (

@@ -66,6 +66,11 @@ const Contact = () => {
           </form>
         </div>
       </div>
+      <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+      <script>
+        {`emailjs.init('whPnjoO1IAixXmFpA'); // replace with your public key (keep secrets out of source)`}
+        {/* emailjs.send(...), emailjs.sendForm(...) etc. */}
+      </script>
     </section>
   );
 };
